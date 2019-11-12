@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "833181444776",
+    "firebase_url": "https://ubber-b648f.firebaseio.com",
+    "project_id": "ubber-b648f",
+    "storage_bucket": "ubber-b648f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833181444776:android:f900f13aa4a65cf528b09d",
+        "android_client_info": {
+          "package_name": "com.hussein.ubber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833181444776-clf34f50p4s8e5i3jaj7qvv0egvci3br.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hussein.ubber",
+            "certificate_hash": "05694b05d1fb471348fbb91e21ecacf4c22fcbdc"
+          }
+        },
+        {
+          "client_id": "833181444776-0l9t6rs1culv96q0kk6rgm29iqd3s83c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe9IP0PXfUXvt5kGuwMSYi_Tg9lobjJMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833181444776-0l9t6rs1culv96q0kk6rgm29iqd3s83c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
