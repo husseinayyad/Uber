@@ -83,6 +83,11 @@ public class CustomerLoginActivity extends AppCompatActivity {
                         if(!task.isSuccessful()){
                             Toast.makeText(CustomerLoginActivity.this, "sign in error", Toast.LENGTH_SHORT).show();
                         }
+                        else {
+                            Intent intent = new Intent(getApplicationContext(), CustomerMapsActivityext.class);
+                            startActivity(intent);
+                            finish();
+                        }
                     }
                 });
 
