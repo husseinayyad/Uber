@@ -71,16 +71,15 @@ String customerid ="";
     private void getassimcustomer() {
         String driverfounid= FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().
-                getReference().child("Users").child("Drivers").child(driverfounid);
+                getReference().child("Users").child("Drivers").child(driverfounid).child("CustomerRiderId");
 reference.addValueEventListener(new ValueEventListener() {
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
              if (dataSnapshot.exists()){
-                 Map<String,Object> stringObjectMap = ( Map<String, Object>)dataSnapshot.getValue() ;
-                 if (stringObjectMap.get("RiderId")!=null){
-                     customerid=stringObjectMap.get("RiderId").toString();
+
+                     customerid=dataSnapshot.getValue().toString();
                      getassimcustomerloc();
-                 }
+
 
 
                     }

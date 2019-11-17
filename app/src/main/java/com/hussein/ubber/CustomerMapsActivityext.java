@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -142,27 +143,41 @@ if (driverfound==false){
 
         private void getdriverloc() {
                 DatabaseReference reference = FirebaseDatabase.getInstance().
-                        getReference().child("DriverWorking").child(driverfoundid).child("l");
+                        getReference().child("driverava").child(driverfoundid).child("l");
                 reference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 if (dataSnapshot.exists()){
+
         List<Objects> map = (List<Objects>) dataSnapshot.getValue();
         double lat =0 ;
         double longit = 0;
         call.setText("Driver Found");
+
         if (map.get(0)!=null){
-                lat=Double.valueOf(map.get(0).toString());
+                lat=Double.parseDouble(dataSnapshot.child("0").getValue().toString());
 
         }
         if (map.get(1)!=null){
 
-                longit=Double.valueOf(map.get(1).toString());
+                longit=Double.parseDouble(dataSnapshot.child("1").getValue().toString());
         }
         LatLng latLng= new LatLng(lat,longit);
         if (marker!=null) {
                 marker.remove();
         }
+        Location loc1 = new Location("");
+        loc1.setLatitude(Pickuploc.latitude);
+        loc1.setLongitude(Pickuploc.longitude);
+        Location loc2 = new Location("");
+        loc2.setLatitude(latLng.latitude);
+        loc2.setLongitude(latLng.longitude);
+     Float dis=   loc2.distanceTo(loc1);
+     if (dis<100){
+             call.setText("Driver here ");
+     }
+     else {
+        call.setText("Driver Found : "+ dis);}
         marker=mMap.addMarker(new MarkerOptions().position(latLng).title("Your Driver"));
 }
                         }
